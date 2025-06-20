@@ -1,4 +1,4 @@
-# Fire Alarm System Using Arduino
+# Fire Alarm System
 
 This project simulates a basic fire alarm system using a gas sensor and a temperature sensor. It detects dangerous gas levels and high temperatures, then responds by activating LEDs and a buzzer. The system provides real-time monitoring and alerts, ideal for safety learning in embedded systems.
 
