@@ -1,4 +1,4 @@
-# \[Ultra Sonic Sensor with RGB LED]
+# Ultra Sonic Sensor with RGB LED
 
 This project demonstrates how to use an Ultrasonic Sensor (HC-SR04) with an Arduino Uno to measure distance and visually represent it using LEDs. It’s a beginner-friendly setup that also prints live distance data to the Serial Monitor.
 
@@ -21,7 +21,7 @@ This project demonstrates how to use an Ultrasonic Sensor (HC-SR04) with an Ardu
 | Blue LED        | D5          |
 | Green LED       | D6          |
 
-*Note: Use separate LEDs or a common cathode RGB LED.*
+*Note: Use separate LEDs*
 
 ## ⚙️ How It Works
 
@@ -47,11 +47,11 @@ This project demonstrates how to use an Ultrasonic Sensor (HC-SR04) with an Ardu
 
 ## 💻 Tinkercad Simulation
 
-🔗 \[Add your Tinkercad simulation link here]
+🔗 https://www.tinkercad.com/things/7WdFJYsurBi-ultrasonic-sensor-with-rgb-led
 
 ## 📺 Project Inspiration / Reference
 
-🎥 \[Add the YouTube video link or source here]
+🎥 https://youtu.be/dgQuT0zOOpc?si=_2XizLkgnFGx5gU7
 
 ## 🧭 Real-Life Applications
 
@@ -62,8 +62,7 @@ This project demonstrates how to use an Ultrasonic Sensor (HC-SR04) with an Ardu
 
 ---
 
-## 🔧 Future Upgrades I Will Work On
-
+## 🔧 My Future Plan
 * I will add a buzzer to alert users when objects are too close.
 * I plan to integrate a 16x2 LCD screen to show distance without needing a computer.
 * I will try rotating the sensor with a servo motor to create a basic radar system.
