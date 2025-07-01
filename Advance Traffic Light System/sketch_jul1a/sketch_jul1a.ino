@@ -173,10 +173,11 @@ long getDelay() {
     char key = cKeypad.getKey();
     if (key >= '0' && key <= '9') {
       value = value * 10 + (key - '0');
+      
       lcd.print(key);
     } else if (key == 'C') {
       break;
     }
   }  // return to traffic mode after setting delay
-  return value;
+  return value*1000;
 }
