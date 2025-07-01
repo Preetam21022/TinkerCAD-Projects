@@ -51,9 +51,9 @@ A smart Arduino-based traffic light simulation with editable delay settings and 
 - Press `*` to activate passcode input  
 - Default password: `6556`
 - If correct, user can modify traffic light delays using:
-  - `R` → Edit Red delay
-  - `Y` → Edit Yellow delay
-  - `G` → Edit Green delay
+  - `R` → Edit Red delay in Seconds
+  - `Y` → Edit Yellow delay in Seconds
+  - `G` → Edit Green delay in Seconds
   - Enter new delay, then press `C` to confirm
   - Press '#' to leave delay editing mode
 
