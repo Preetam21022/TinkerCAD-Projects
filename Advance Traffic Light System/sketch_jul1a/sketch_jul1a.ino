@@ -127,6 +127,12 @@ void loop() {
         lcd.clear();
       }
       break;
+    
+    case '#':
+    pass=false;
+    input=false;
+    lcd.clear();
+    break;
   }
 
 
