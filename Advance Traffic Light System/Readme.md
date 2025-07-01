@@ -55,6 +55,7 @@ A smart Arduino-based traffic light simulation with editable delay settings and 
   - `Y` → Edit Yellow delay
   - `G` → Edit Green delay
   - Enter new delay, then press `C` to confirm
+  - Press '#' to leave delay editing mode
 
 - Incorrect password triggers buzzer and retry prompt
 
