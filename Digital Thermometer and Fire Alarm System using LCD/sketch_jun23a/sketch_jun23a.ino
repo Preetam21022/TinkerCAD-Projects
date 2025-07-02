@@ -32,7 +32,6 @@ void setup()
   Serial.begin(9600);
   pinMode(A0,INPUT);
   lcd.begin(16, 2);
-  lcd.print("Today's Temperat");
 }
 
 void loop()
@@ -53,55 +52,69 @@ void loop()
   Serial.print(gasSensor);
   Serial.print(" ");
   Serial.println();
-  
- lcd.setCursor(0, 1);
   /*
+  lcd.clear();
+  lcd.print("Today's Temperat");
+  lcd.setCursor(0, 1);
   lcd.print("ure: ");
-  lcd.print(temperature);
   lcd.print(char(178));//178 is the code for ptinting degree
   lcd.print("C");
   
   or we can use string
   */
-
+  lcd.clear();
+  lcd.print("Today's Temperat");
+  lcd.setCursor(0, 1);
   String output="ure: "+String(temperature)+String(char(178))+"C";
   lcd.print(output);
   
   bool alert = false;
- digitalWrite(green,HIGH); 
-if (temperature < 10) {
+  digitalWrite(green,HIGH); 
+if(temperature < 10 && gasSensor<100) {
   digitalWrite(blue, HIGH);
   digitalWrite(green,LOW);
   digitalWrite(red,LOW);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("EMERGENCY:");
+  lcd.print("EMERGENCY:Low");
   lcd.setCursor(0,1);
-  String output2="Low Temp: "+String(temperature)+String(char(178))+"C";
+  String output2="Temp: "+String(temperature)+String(char(178))+"C";
   lcd.print(output2);
   alert = true;
 }
-else if (temperature > 40) {
+else if (gasSensor<100 && temperature > 40) {
   digitalWrite(red, HIGH);
   digitalWrite(blue,LOW);
   digitalWrite(green,LOW);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("EMERGENCY:");
+  lcd.print("EMERGENCY:HIGH");
   lcd.setCursor(0,1);
-  String output3="HIGH Temp: "+String(temperature)+String(char(178))+"C";
+  String output3="Temp: "+String(temperature)+String(char(178))+"C";
   lcd.print(output3);
   alert = true;
 } 
- else if (gasSensor>=100) {
+ else if (gasSensor>=100 && temperature<10) {
   digitalWrite(red, HIGH);
   digitalWrite(green,LOW);
-    digitalWrite(blue,LOW);
+  digitalWrite(blue,LOW);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("EMERGENCY: Heavy");
+  lcd.print("Alert:Heavy ");
   lcd.setCursor(0,1);
-  String output4="Smoke||Temp: "+String(temperature)+String(char(178))+"C";
+  String output4="Smoke|LT="+String(temperature)+String(char(178))+"C";
+  lcd.print(output4);
+  alert = true;
+}
+  else if (gasSensor>=100 && temperature<=40) {
+  digitalWrite(red, HIGH);
+  digitalWrite(green,LOW);
+  digitalWrite(blue,LOW);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Alert:Heavy");
+  lcd.setCursor(0,1);
+  String output4="Smoke|T="+String(temperature)+String(char(178))+"C";
   lcd.print(output4);
   alert = true;
 }
@@ -109,18 +122,18 @@ else if (temperature > 40) {
   else if (gasSensor>=100 && temperature > 40) {
   digitalWrite(red, HIGH);
   digitalWrite(green,LOW);
-    digitalWrite(blue,LOW);
+  digitalWrite(blue,LOW);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Fire Alert:Smoke");
+  lcd.print("Fire Alert:High");
   lcd.setCursor(0,1);
-  String output4="High Temp: "+String(temperature)+String(char(178))+"C";
+  String output4="Temp: "+String(temperature)+String(char(178))+"C";
   lcd.print(output4);
   alert = true;
 } else {
   digitalWrite(red, LOW);
-    digitalWrite(blue,LOW);
-    digitalWrite(green,HIGH);
+  digitalWrite(blue,LOW);
+  digitalWrite(green,HIGH);
 }
   
   digitalWrite(piezo, alert ? HIGH : LOW);
