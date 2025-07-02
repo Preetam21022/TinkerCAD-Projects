@@ -30,7 +30,7 @@ void setup()
   pinMode(red,OUTPUT);
   pinMode(piezo,OUTPUT);
   Serial.begin(9600);
-  pinMode(A0,INPUT);
+  pinMode(t,INPUT);
   lcd.begin(16, 2);
 }
 
