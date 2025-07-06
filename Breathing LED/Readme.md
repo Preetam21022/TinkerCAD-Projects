@@ -52,3 +52,4 @@ I plan to extend this project by adding:
 - A **potentiometer** to control breathing speed
 - An **RGB LED** to cycle through colors with the breathing effect
 - A **button** to pause/resume or change the mode
+- make a **light show** using this logic
