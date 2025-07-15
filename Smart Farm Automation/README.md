@@ -63,7 +63,7 @@ The objective is to give the user a real-time, responsive, and intelligent farm 
 | T1    | 1   | n‑MOSFET (pump/mist driver)              |
 | D1    | 1   | Diode (motor protection)                 |
 | S1    | 1   | Pushbutton (motion‑log reset)            |
-| BAT1  | 1   | 9 V Battery (optional standalone power)  |
+| BAT1  | 4   | 1.5 V AA Battery with Built-In Switch (standalone power)  |
 
 ---
 
