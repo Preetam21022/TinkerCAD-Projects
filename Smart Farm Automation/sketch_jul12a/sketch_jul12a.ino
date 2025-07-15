@@ -1,5 +1,3 @@
-//Arduino Code
-
 #include <LiquidCrystal.h>
 
 // LCD pins: RS, E, D4, D5, D6, D7
@@ -53,14 +51,13 @@ void setup() {
   //intruder
   pinMode(pir, INPUT);  // Added this line
   pinMode(bp, INPUT);  // Changed to INPUT_PULLUP for better button handling
-  lcd.begin(16, 2);
-
-  startTime = millis();
-  Starting();
   //display
-  
-  Serial.begin(9600); 
-  
+  lcd.begin(16, 2);
+  Serial.begin(9600);
+  //timer
+  startTime = millis();
+  //calibration
+  Starting();
 }
 
 
@@ -147,7 +144,7 @@ void loop() {
 
     int brightness = map(lightRaw, 54, 974, 0, 100);
     brightness = constrain(brightness, 0, 100);
-
+    
     float vout = analogRead(tempSensor);
     float voltage = (vout * 5.0) / 1024.0;
     float tempC = (voltage - 0.5) * 100.0;
@@ -156,11 +153,17 @@ void loop() {
     speed = map(speed, 0, 1023, 0, 255);
 
     // Farm controls
+    // 🔵 Soil Moisture Control
     analogWrite(pumpPin, (soil < 400) ? speed : 0);
-    digitalWrite(heatPumpPin, (tempC < 15 || tempC > 35));
     
+    // 🌡️ Temperature Control
+    digitalWrite(heatPumpPin, (tempC < 15 || tempC > 35));
+    //can heat or cool the system
+    
+    // 💧 Misting System
     digitalWrite(mistPin, (tempC > 30 || humid < 40));
-
+    
+	// ☀️ Light & Curtain Control
     if (brightness < 50) {
       digitalWrite(growLightPin, HIGH);
       digitalWrite(curtainPin, LOW);
